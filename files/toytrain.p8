@@ -45,6 +45,10 @@ function update_speed()
 		speed = speed * 1.5
 	end
 
+	if speed < 0.1 then
+		speed = 0
+	end
+
 	if speed > 1.5 and switch_state == 1 then
 		speed = 1.5
 	elseif speed > 2 and switch_state == 2 then
