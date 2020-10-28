@@ -3,24 +3,31 @@ version 29
 __lua__
 --draws colourful circles
 frame = 0
+textframe = 0
 textx = rnd(100)
 texty = rnd(100)
 function _init()
 	cls()
 end
 function _update() 
-	frame += 1  
-	-- loop at 400
-	if frame > 150 then
-		frame = 0
+	frame += 1 
+	textframe +=1
+	if textframe > 60 then
+		textframe = 0
 		textx = rnd(100)
 		texty = rnd(100)
+	end
+	-- loop at 15000
+	if frame > 15000 then
+		frame = 0
 	end
 	i = frame
 	ccounter = 0
 	while i > 0 do
-		color = ccounter
-		circfill(64,64, i, color)
+		if i < 100 then
+			color = ccounter
+			circfill(64,64, i, color)
+		end
 		i -= 1
 		ccounter += 1
 	end
